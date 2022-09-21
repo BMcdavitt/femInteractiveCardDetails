@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+
+  <script src="index.js"></script>
+</head>
+
+<body>
+
+  <main>
+    <img class="cardHeaderBackgroundMobile" src="./images/bg-main-mobile.png" />
+    <img class="cardHeaderBackgroundDesktop" src="./images/bg-main-desktop.png" />
+    <div class="cardHeader">
+
+      <div class="card" id="cardBack">
+        <img class="cardImageBack" src="./images/bg-card-back.png" alt="creditCardBack">
+        <div class="cardCVCode"><span class="cardCVContent" id="cardCVC">000</span></div>
+      </div>
+
+
+      <div class="card" id="cardFront">
+        <img class="cardImageFront" src="./images/bg-card-front.png" alt="creditCardFront">
+
+        <div class="colordCircle"></div>
+        <div class="emptyCircle"></div>
+        <div class="cardAccountNumber" id="cardAccountNumber">
+          0000 0000 0000 0000
+        </div>
+        <div class="cardDetails" id="cardAccountName">
+          Jane Appleseed
+        </div>
+        <div class="cardDetails" id="cardExireDate">
+          00/00
+        </div>
+      </div>
+    </div>
+
+    <div class="formArea" id="formArea">
+      <form>
+        <div class="formInputGroup">
+          <label for="fname">Cardholder Name</label>
+          <span class="inputborder" id="fnameBorder">
+            <input type="text" id="fname" name="cardholderName" placeholder="e.g.Jane Appleseed"
+              onfocus="triggerHighlight('fname','fnameBorder')"
+              onblur="removeHighlight('fname','fnameBorder','nameInputError')" onchange="updateCardName()">
+          </span>
+          <div class="inputerror" id="nameInputError">
+            Can't be blank
+          </div>
+        </div>
+        <div class="formInputGroup">
+          <label for="fnumber">Card Number</label>
+          <span class="inputborder" id="fnumberBorder">
+            <input type="text" id="fnumber" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000"
+              onfocus="triggerHighlight('fnumber','fnumberBorder')"
+              onblur="removeHighlight('fnumber','fnumberBorder','numberInputError')" onchange="updateCardNumber()">
+          </span>
+          <div class="inputerror" id="numberInputError">
+            Can't be blank
+          </div>
+        </div>
+        <div class="formLowerArea">
+          <div class="formLowerAreaLeft">
+            <label for="fdate">EXP. DATE (MM/YY)</label>
+            <div class="formLowerAreaLeftInputGroup">
+              <span class="inputborder" id="fdateBorder">
+                <input type="text" id="fdate" name="cardExpMonth" placeholder="MM"
+                  onfocus="triggerHighlight('fdate','fdateBorder')"
+                  onblur="removeHighlight('fdate','fdateBorder','dateInputError')" onchange="updateCardExpDate()">
+              </span>
+              <span class="inputborder" id="fyearBorder">
+                <input type="text" id="fyear" name="cardExpYear" placeholder="YY"
+                  onfocus="triggerHighlight('fyear','fyearBorder')"
+                  onblur="removeHighlight('fyear','fyearBorder','dateInputError')" onchange="updateCardExpDate()">
+              </span>
+            </div>
+            <div class="inputerrorBottom" id="dateInputError">
+              numbers only
+            </div>
+          </div>
+          <div class=" formLowerAreaLeft">
+            <label for="fcvc">CVC</label>
+            <span class="inputborder" id="fcvcBorder">
+              <input type="text" id="fcvc" name="cardCVC" placeholder="e.g 123"
+                onfocus="triggerHighlight('fcvc','fcvcBorder')"
+                onblur="removeHighlight('fcvc','fcvcBorder','cvcInputError')" onchange="updateCardCVC()">
+            </span>
+            <div class="inputerrorBottom" id="cvcInputError">
+              numbers only
+            </div>
+          </div>
+        </div>
+
+        <input type="button" value="Confirm" onclick="submitForm()">
+
+      </form>
+
+    </div>
+
+
+    <div class="confirmationScreen" id="confirmationScreen">
+      <div class="centeredColumn">
+        <div class="purpleCircle">
+          <div class="checkMark">
+
+          </div>
+        </div>
+        <div class="confirmLargeText">Thank you!</div>
+        <div class="confirmSmallText">We've added your card details</div>
+        <input type="button" value="Continue">
+      </div>
+    </div>
+    </div>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Bill McDavitt</a>.
+  </div>
+</body>
+
+</html>
